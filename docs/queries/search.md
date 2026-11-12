@@ -10,10 +10,10 @@ FOR doc IN kb_search
       OR doc.title.en IN TOKENS(@q, "text_en"),
     "text_en")
   OR ANALYZER(
-      PHRASE(doc.name.sr, @q)
-      OR PHRASE(doc.description.sr, @q)
-      OR PHRASE(doc.title.sr, @q),
-    "norm_sr")
+      doc.name.sr IN TOKENS(@q, "text_sr")
+      OR doc.description.sr IN TOKENS(@q, "text_sr")
+      OR doc.title.sr IN TOKENS(@q, "text_sr"),
+    "text_sr")
   OR NGRAM_MATCH(doc.name.sr, @q, 0.6, "ngram_sr")
   OR ANALYZER(doc.code == UPPER(@q), "identity")
   SORT BM25(doc) DESC

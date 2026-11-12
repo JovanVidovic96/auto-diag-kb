@@ -35,8 +35,8 @@ The view `kb_search` indexes text fields of four collections:
 | Analyzer | Type | Used for |
 | --- | --- | --- |
 | `text_en` | built in | English fields: tokenizing, stemming, case |
-| `norm_sr` | norm, locale `sr`, `accent: false`, `case: lower` | Serbian fields: "kocnica" matches "kočnica" |
-| `ngram_sr` | ngram 3 to 5 on top of `norm_sr` | partial words: "paljen" matches "paljenje" |
+| `text_sr` | text, locale `sr`, `accent: false`, `case: lower`, no stemming | Serbian words: "kocnica" matches "kočnica" |
+| `ngram_sr` | pipeline: norm (lower case, no accents), then ngram 3 to 5 | partial words: "paljen" matches "paljenje" |
 | `identity` | built in | `code` |
 
 Results are ranked with `BM25(doc)`. See [Full-text search](../queries/search.md).

@@ -1,0 +1,32 @@
+services:
+  arangodb:
+    image: arangodb:3.11
+    environment:
+      ARANGO_ROOT_PASSWORD: ${ARANGO_ROOT_PASSWORD}
+    ports:
+      - "8529:8529"
+    volumes:
+      - arangodb_data:/var/lib/arangodb3
+      - arangodb_apps:/var/lib/arangodb3-apps
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      # Inside the Compose network the database is reached by its service name.
+      ARANGO_URL: http://arangodb:8529
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the code so --reload picks up changes without rebuilding the image.
+      - ./backend:/code
+    depends_on:
+      - arangodb
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # frontend (Streamlit) is added in week 6.
+
+volumes:
+  arangodb_data:
+  arangodb_apps:

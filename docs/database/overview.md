@@ -9,7 +9,7 @@ ArangoDB is a multi-model database: documents and graphs live in the same engine
 | Edge collections | 17 |
 | Named graphs | 2: `diagnostic_graph`, `service_graph` |
 | ArangoSearch view | 1: `kb_search` |
-| Custom analyzers | 2: `norm_sr`, `ngram_sr` |
+| Custom analyzers | 2: `text_sr`, `ngram_sr` |
 
 ## Conventions
 
