@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
+# Secrets
+.env
+
+# MkDocs build
+site/
+
+# Editors
+.idea/
+.vscode/
+.zed/

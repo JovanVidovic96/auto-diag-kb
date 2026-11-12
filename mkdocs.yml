@@ -1,0 +1,75 @@
+site_name: Auto Diagnostic Knowledge Base
+site_description: NoSQL Databases course project on ArangoDB, FastAPI and Streamlit
+repo_url: https://github.com/JovanVidovic96/auto-diag-kb
+edit_uri: ""
+
+theme:
+  name: readthedocs
+  navigation_depth: 3
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+# The readthedocs theme does not render mermaid by itself.
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - js/mermaid-init.js
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Configuration: configuration.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Authentication: architecture/auth.md
+  - Database:
+      - Overview: database/overview.md
+      - Graph model: database/graph-model.md
+      - Collections: database/collections.md
+      - Indexes and search: database/indexes.md
+      - Seed data: database/seed-data.md
+  - Queries:
+      - Overview: queries/overview.md
+      - CRUD and transactions: queries/crud.md
+      - Full-text search: queries/search.md
+      - Graph traversals: queries/traversal.md
+      - Aggregations: queries/aggregation.md
+  - Use cases:
+      - Actors and overview: usecases/overview.md
+      - Permissions: usecases/permissions.md
+      - Authentication: usecases/auth.md
+      - Knowledge base: usecases/knowledge-base.md
+      - Diagnosis: usecases/diagnosis.md
+      - Vehicles and services: usecases/vehicles-services.md
+      - Analytics: usecases/analytics.md
+  - API:
+      - Overview: api/overview.md
+      - Endpoints: api/endpoints.md
+  - UI:
+      - Overview: ui/overview.md
+      - Login: ui/login.md
+      - Register: ui/register.md
+      - Diagnose: ui/diagnose.md
+      - Code lookup: ui/code-lookup.md
+      - Catalog: ui/catalog.md
+      - My vehicles: ui/my-vehicles.md
+      - Vehicle detail: ui/vehicle-detail.md
+      - Service record form: ui/service-record-form.md
+      - Analytics: ui/analytics.md
+      - Knowledge base admin: ui/kb-admin.md
+      - Users and workshops: ui/users-admin.md
+      - Query Lab: ui/query-lab.md
+  - Development:
+      - Local development: development/local-development.md
+      - Testing: development/testing.md
+      - Work plan: development/work-plan.md
